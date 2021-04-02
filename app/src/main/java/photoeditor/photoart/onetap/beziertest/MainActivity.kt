@@ -13,17 +13,13 @@ import androidx.core.view.ViewCompat
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var view: View
-    private lateinit var bezierView: BezierView
+    private val view by lazy { findViewById<View>(R.id.view) }
+    private val bezierView by lazy { findViewById<BezierView>(R.id.imageView) }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        view = findViewById(R.id.view)
-        bezierView = findViewById(R.id.imageView)
-
 
         findViewById<Button>(R.id.button_start).setOnClickListener {
             startAnimation()
