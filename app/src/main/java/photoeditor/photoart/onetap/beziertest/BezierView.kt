@@ -97,23 +97,19 @@ class BezierView : View {
 
         })
 
-    override fun onTouchEvent(event: MotionEvent?) =
-        if (event == null || event.pointerCount > 1)
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        performClick()
+        val b = if (event == null || event.pointerCount > 1)
             super.onTouchEvent(event)
         else
             gesDet.onTouchEvent(event)
-
-
-    fun test() {
-
-
-
+        if (b) performClick()
+        return b
     }
 
-
-
-
-
+    override fun performClick(): Boolean {
+        return super.performClick()
+    }
 
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
