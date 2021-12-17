@@ -1,5 +1,7 @@
 package photoeditor.photoart.onetap.beziertest
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Path
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -21,10 +23,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        findViewById<Button>(R.id.buttonPen).setOnClickListener {
+            PenActivity.startNewInstance(this)
+        }
+
+
         findViewById<Button>(R.id.button_start).setOnClickListener {
             startAnimation()
         }
-
 
     }
 
@@ -48,7 +54,6 @@ class MainActivity : AppCompatActivity() {
 
         val pathInterpolator = PathInterpolator(path)
         ViewCompat.animate(view).translationX(end.toFloat()).setDuration(1000).interpolator = pathInterpolator
-
 
     }
 }

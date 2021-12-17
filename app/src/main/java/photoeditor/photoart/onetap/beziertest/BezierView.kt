@@ -37,9 +37,9 @@ class BezierView : View {
     val ctrl1 = PointF()
     val ctrl2 = PointF()
 
-
     //贝塞尔曲线的路径
     private val path = Path()
+
 
     //控制点的画笔
     private val pointPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -55,12 +55,22 @@ class BezierView : View {
         strokeWidth = 6f
         style = Paint.Style.STROKE
     }
+
     //辅助线的画笔
     private val helpPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = Color.DKGRAY
         strokeWidth = 2f
         style = Paint.Style.STROKE
     }
+
+    //文字的画笔
+    private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.YELLOW
+        textSize = 32f
+        style = Paint.Style.FILL_AND_STROKE
+    }
+
+
 
 
     //触摸手势
@@ -84,7 +94,12 @@ class BezierView : View {
                     else -> null
                 }
 
-                if (e2.x < 0 || e2.x > measuredWidth || e2.y < 0 || e2.y > measuredHeight) return super.onScroll(e1, e2, distanceX, distanceY)
+                if (e2.x < 0 || e2.x > measuredWidth || e2.y < 0 || e2.y > measuredHeight) return super.onScroll(
+                    e1,
+                    e2,
+                    distanceX,
+                    distanceY
+                )
 
                 return point?.let {
                     it.x = e2.x
@@ -148,6 +163,15 @@ class BezierView : View {
         //绘制点
         canvas.drawPoint(ctrl1.x, ctrl1.y, pointPaint)
         canvas.drawPoint(ctrl2.x, ctrl2.y, pointPaint)
+
+        val p1x = "%.2f".format(ctrl1.x / measuredWidth)
+        val p1y = "%.2f".format(1 - ctrl1.y / measuredHeight)
+        val p2x = "%.2f".format(ctrl2.x / measuredWidth)
+        val p2y = "%.2f".format(1 - ctrl2.y / measuredHeight)
+
+        //绘制坐标值
+        canvas.drawText("( X: $p1x  Y: $p1y )", ctrl1.x - 128f, ctrl1.y - 48f, textPaint)
+        canvas.drawText("( X: $p2x  Y: $p2y )", ctrl2.x - 128f, ctrl2.y - 48f, textPaint)
     }
 
     //判断落点
@@ -156,8 +180,6 @@ class BezierView : View {
         abs(x - ctrl2.x) < 100 && abs(y - ctrl2.y) < 100 -> TYPE_CTRL2
         else -> 0
     }
-
-
 
 
 }
