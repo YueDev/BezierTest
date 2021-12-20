@@ -1,4 +1,4 @@
-package photoeditor.photoart.onetap.beziertest
+package photoeditor.photoart.onetap.beziertest.view
 
 import android.content.Context
 import android.graphics.*
@@ -29,7 +29,6 @@ class PenView : View {
 
     //移动点的index
     private var touchIndex = INVALIDATED_TOUCH_INDEX
-
 
     var isAddPoint = false
         set(value) {
@@ -206,7 +205,7 @@ class PenView : View {
         buildPath()
     }
 
-    fun getInterpolator():PathInterpolator {
+    fun getInterpolator(): PathInterpolator {
 
         //把控制点标准化到（0,0）(1,1)
         val w = measuredWidth

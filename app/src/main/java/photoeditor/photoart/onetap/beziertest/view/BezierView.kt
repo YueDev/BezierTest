@@ -1,4 +1,4 @@
-package photoeditor.photoart.onetap.beziertest
+package photoeditor.photoart.onetap.beziertest.view
 
 import android.content.Context
 import android.graphics.*

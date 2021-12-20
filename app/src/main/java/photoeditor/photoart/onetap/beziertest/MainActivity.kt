@@ -1,16 +1,13 @@
 package photoeditor.photoart.onetap.beziertest
 
-import android.content.Context
-import android.content.Intent
 import android.graphics.Path
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.view.ViewConfiguration
 import android.view.animation.PathInterpolator
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
+import photoeditor.photoart.onetap.beziertest.view.BezierView
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,6 +24,9 @@ class MainActivity : AppCompatActivity() {
             PenActivity.startNewInstance(this)
         }
 
+        findViewById<Button>(R.id.buttonKey).setOnClickListener {
+            KeyActivity.startNewInstance(this)
+        }
 
         findViewById<Button>(R.id.button_start).setOnClickListener {
             startAnimation()

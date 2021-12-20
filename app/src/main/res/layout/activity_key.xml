@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PenActivity">
+    tools:context=".KeyActivity">
 
-
-    <photoeditor.photoart.onetap.beziertest.view.PenView
-        android:id="@+id/penView"
+    <photoeditor.photoart.onetap.beziertest.view.KeyView
+        android:id="@+id/keyView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/teal_700"
-        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintDimensionRatio="2:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,39 +22,39 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Add"
-        app:layout_constraintEnd_toStartOf="@+id/buttonStopAdd"
+        app:layout_constraintEnd_toStartOf="@+id/buttonClean"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/penView" />
+        app:layout_constraintTop_toBottomOf="@+id/keyView" />
 
     <Button
-        android:id="@+id/buttonStopAdd"
+        android:id="@+id/buttonPlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Done"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonAdd"
+        android:text="Play"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonClean"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonClean"
+        app:layout_constraintTop_toTopOf="@+id/buttonClean" />
+
+    <Button
+        android:id="@+id/buttonClean"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clean"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonAdd"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPlay"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonAdd"
         app:layout_constraintTop_toTopOf="@+id/buttonAdd" />
-
 
     <View
         android:id="@+id/view"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:background="#DDDD00"
-        app:layout_constraintBottom_toTopOf="@+id/buttonStart"
+        android:background="@color/teal_700"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonAdd" />
-
-    <Button
-        android:id="@+id/buttonStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Start"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

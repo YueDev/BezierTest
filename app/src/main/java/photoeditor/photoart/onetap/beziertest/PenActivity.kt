@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.ViewCompat
+import photoeditor.photoart.onetap.beziertest.view.PenView
 
 class PenActivity : AppCompatActivity() {
 
